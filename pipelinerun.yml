@@ -1,0 +1,14 @@
+apiVersion: tekton.dev/v1alpha1
+kind: PipelineRun
+metadata:
+  name: pipeline-valhalla-run
+spec:
+  pipelineRef:
+    name: pipeline-valhalla
+  resources:
+    - name: valhalla-git
+      resourceRef:
+        name: valhalla-git
+    - name: valhalla-image
+      resourceRef:
+        name: valhalla-image

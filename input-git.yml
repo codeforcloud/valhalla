@@ -1,0 +1,12 @@
+apiVersion: tekton.dev/v1alpha1
+kind: PipelineResource
+metadata:
+  name: valhalla-git
+  namespace: default
+spec:
+  type: git
+  params:
+    - name: url
+      value: https://github.com/codeforcloud/valhalla.git
+    - name: revision
+      value: master

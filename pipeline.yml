@@ -1,0 +1,24 @@
+apiVersion: tekton.dev/v1alpha1
+kind: Pipeline
+metadata:
+  name: pipeline-valhalla
+spec:
+  resources:
+    - name: valhalla-git
+      type: git
+    - name: valhalla-image
+      type: image
+  tasks:
+    - name: build-and-push-valhalla
+      taskRef:
+        name: buildkit
+      params:
+        - name: pathToDockerFile
+          value: Dockerfile
+      resources:
+        inputs:
+          - name: docker-source
+            resource: valhalla-git
+        outputs:
+          - name: builtImage
+            resource: valhalla-image
