@@ -5,6 +5,8 @@ metadata:
 spec:
   pipelineRef:
     name: pipeline-valhalla
+  trigger:
+    type: manual
   resources:
     - name: valhalla-git
       resourceRef:
